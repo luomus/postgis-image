@@ -23,3 +23,5 @@ RUN chgrp -R 0 /var/run /home/user \
 WORKDIR /home/user
 
 ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["postgres"]
