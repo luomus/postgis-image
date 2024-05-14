@@ -2,16 +2,16 @@
 
 TIMESTAMP=$(date '+%Y%m%d%H%M%S')
 
-echo "Create DB backup [$TIMESTAMP]\n"
+echo "Create DB backup [$TIMESTAMP]"
 
 pg_dump -v -c postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@0.0.0.0:$POSTGRES_PORT/$POSTGRES_DB > /tmp/backup-$TIMESTAMP-$BRANCH.sql
 
 gzip /tmp/backup-$TIMESTAMP-$BRANCH.sql
 
-echo "Copying data to object store [$TIMESTAMP]\n"
+echo "Copying data to object store [$TIMESTAMP]"
 
 rclone copy "/tmp/backup-$TIMESTAMP-$BRANCH.sql.gz" "default:$OBJECT_STORE"
 
-echo "Removing local archive [$TIMESTAMP]\n"
+echo "Removing local archive [$TIMESTAMP]"
 
 rm /tmp/backup-$TIMESTAMP-$BRANCH.sql.gz
