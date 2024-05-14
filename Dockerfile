@@ -1,5 +1,5 @@
 # docker manifest inspect postgis/postgis:latest -v | jq '.Descriptor.digest'
-FROM postgis/postgis:latest@sha256:e006d19de59fb489e380d4b3ca1eff8f3c905785906641a131cad9cb27e981ca
+FROM postgis/postgis:latest@sha256:fdabb7985ea8963bbc0256807e8ca5e9b86b85f35d9fbe683aff57fcce09cc98
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
