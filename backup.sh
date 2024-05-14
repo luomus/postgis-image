@@ -10,7 +10,7 @@ gzip /tmp/backup-$TIMESTAMP-$BRANCH.sql
 
 echo "Copying data to object store [$TIMESTAMP]\n"
 
-rclone copy "/tmp/backup-$TIMESTAMP-$BRANCH.sql.gz" "default:hy-7088-finbif-ipt"
+rclone copy "/tmp/backup-$TIMESTAMP-$BRANCH.sql.gz" "default:$OBJECT_STORE"
 
 echo "Removing local archive [$TIMESTAMP]\n"
 
