@@ -16,9 +16,9 @@ RUN apt-get update \
  && apt-get autoclean -y \
  && rm -rf /var/lib/apt/lists/*
 
-RUN chgrp -R 0 /var/run /home/user \
- && chmod -R g=u /var/run /home/user /etc/passwd \
- && chmod gu+rw /var/run
+RUN chgrp -R 0 /var/run/postgresql /home/user \
+ && chmod -R g=u /home/user /etc/passwd \
+ && chmod -R 777 /var/run/postgresql
 
 WORKDIR /home/user
 
